@@ -1,0 +1,45 @@
+<nav class="navbar navbar-toggleable-md  fixed-top ">
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+</button>
+
+
+  <a  class="navbar-brand" routerLinkActive="/objetos" routerLink="/objetos">
+    Video TARZAN
+  </a>
+    &nbsp;
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+
+
+        &nbsp;
+      <li *ngIf="isAdministrator() && isLoggedIn() " class="nav-item">
+        <a routerLinkActive="/administrador" routerLink="/administrador"  class="nav-link" class="styleA" >Administrador</a>
+      </li>
+      &nbsp;
+    </ul>
+    <ul class="navbar-nav lr-auto">
+      &nbsp;
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a routerLinkActive="/perfil" routerLink="/perfil"  class="nav-link" class="styleA" >Perfil</a>
+      </li>
+      &nbsp;
+      <li class="nav-item">
+        <a *ngIf="!isLoggedIn()" routerLinkActive="/signin" routerLink="/signin"  class="styleA" >Ingresa</a>
+      </li>
+        &nbsp;
+      <li class="nav-item">
+        <a *ngIf="!isLoggedIn()" routerLinkActive="/signup" routerLink="/signup"  class="styleA" >Registrate</a>
+      </li>
+        &nbsp;
+      <li *ngIf="isLoggedIn()" class="nav-item">
+        <a routerLinkActive="/objetos" routerLink="/objetos"  class="nav-link" (click)="signOut()" class="styleA" >Salir</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

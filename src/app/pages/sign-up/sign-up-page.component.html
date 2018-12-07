@@ -1,0 +1,37 @@
+<div class="container">
+    <br>
+
+    <div class="card" >
+    <h2>Registrate</h2>
+        <font size="1" color="grey">campos obligatorios (<font color="red" >*</font>)</font>
+        <br>
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()" novalidate>
+
+        <div class="form-group">
+            <label for="name">Nombre y Apellido<font color="red" >*</font></label>
+            <input type="text" class="form-control" id="name" formControlName="name" required>
+        </div>
+
+
+        <div class="form-group" >
+            <label for="cc">Cédula<font color="red" >*</font></label>
+            <div class="row" align="center">
+                <input type="text" class="form-control" id="cc" formControlName="cc" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Contraseña<font color="red" >*</font></label>
+            <input type="password" class="form-control" id="alterEgo" formControlName="password" required>
+        </div>
+
+
+        <hr>
+
+        <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid">{{loader}}</button>
+
+
+    </form>
+        <p class="text-danger mt-1" *ngIf="error">{{error}}</p>
+</div>
+</div>

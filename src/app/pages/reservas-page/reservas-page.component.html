@@ -1,0 +1,40 @@
+<div class="container">
+    <br>
+    <br>
+
+    <div class="row">
+
+            <br>
+                <div class="card text-center">
+
+                    <div class="centrado">
+
+                        <img src="{{objeto.image}}" height="150" width="150" class="centrado" >
+                    </div>
+
+                    <font size="5px">{{objeto.title}}</font>
+                    <font size="2px">Actores: {{objeto.actors}}</font>
+                    <font size="2px">Descripción: {{objeto.description}}</font>
+                    <font size="2px">Director: {{objeto.director}}</font>
+                    <font size="3px">Precio: {{objeto.price}}</font>
+                    <font size="2px">Unidades disponibles: {{objeto.units_available}}</font>
+
+                    <div *ngIf="objeto.units_available<=0">
+                        <font size="5" color="red">Totas las unidades reservadas</font>
+                    </div>
+                    <div *ngIf="objeto.units_available>0 && isLoggedIn()">
+
+                        <button (click)="makeAReservation(objeto.title)" type="submit" class="btn btn-success"
+                                routerLinkActive="/perfil" routerLink="/perfil" >{{loader}}</button>
+                    </div>
+                    <div *ngIf="objeto.units_available>0 && !isLoggedIn()">
+
+                        <button type="submit" class="btn btn-success"
+                                routerLinkActive="/signin" routerLink="/signin" >{{loader}}</button>
+                    </div>
+                </div>
+
+            <br>
+    </div>
+
+</div>
